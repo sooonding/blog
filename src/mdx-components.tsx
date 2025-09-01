@@ -1,5 +1,6 @@
 import type { MDXComponents } from 'mdx/types';
 import Link from 'next/link';
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '@/components/ui/table';
 
 // MDX 컴포넌트를 커스터마이징
 export function useMDXComponents(components: MDXComponents): MDXComponents {
@@ -37,6 +38,13 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {children}
       </code>
     ),
+    // 테이블 컴포넌트 추가
+    table: ({ children }) => <Table>{children}</Table>,
+    thead: ({ children }) => <TableHeader>{children}</TableHeader>,
+    tbody: ({ children }) => <TableBody>{children}</TableBody>,
+    tr: ({ children }) => <TableRow>{children}</TableRow>,
+    th: ({ children }) => <TableHead>{children}</TableHead>,
+    td: ({ children }) => <TableCell>{children}</TableCell>,
     // 기존 컴포넌트 유지
     ...components,
   };
